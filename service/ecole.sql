@@ -1,5 +1,4 @@
 
-
 #Insert eleves
 
 INSERT INTO personne (Nom,Prenom,Mdp,Photo) VALUES ( 'Jean','Lario','123','child.svg');
@@ -14,6 +13,12 @@ INSERT INTO personne (Nom,Prenom,Mdp,Photo) VALUES ( 'Marc','Legre','123','child
   SET @idpersonne := (SELECT LAST_INSERT_ID() );
 INSERT INTO eleve(Classe,TypeP,IdPersonne) VALUES ( 'CP','Eleve',@idpersonne);
 
+#Insert matiere
+
+INSERT INTO matiere(Nom) VALUES('Français');
+INSERT INTO matiere(Nom) VALUES('Mathematique');
+INSERT INTO matiere(Nom) VALUES('Anglais');
+
 #Insert professeur
 
 INSERT INTO personne (Nom,Prenom,Mdp,Photo) VALUES ( 'Lucie','Lant','123','parent.svg');
@@ -24,11 +29,7 @@ INSERT INTO personne (Nom,Prenom,Mdp,Photo) VALUES ( 'Hanna','Boul','123','paren
   SET @idpersonne := (SELECT LAST_INSERT_ID() );
 INSERT INTO professeur(IdPersonne,TypeProf,IdMatiere_Pratiquer) VALUES ( @idpersonne,"Prof",2);
 
-#Insert matiere
 
-INSERT INTO matiere(Nom) VALUES('Français');
-INSERT INTO matiere(Nom) VALUES('Mathematique');
-INSERT INTO matiere(Nom) VALUES('Anglais');
 
 #Insert questionnaire
 
@@ -39,7 +40,7 @@ INSERT INTO `questions` (`IdQuestion`, `IdQuestionnaire`,`Question`, `BonneR`, `
 VALUES (NULL, @idQuestionnaire,'Comment ecrit-on 11 ?', 'Onze', 'Honze', 'Onse', 'Onnze');
 
 INSERT INTO `questions` (`IdQuestion`, `IdQuestionnaire`,`Question`, `BonneR`, `Reponse1`, `Reponse2`, `Reponse3`)
-VALUES (NULL, @idQuestionnaire,'Comment ecrit-on 100 ?', 'Sans', 'Cents', 'Cent', 'Cen');
+VALUES (NULL, @idQuestionnaire,'Comment ecrit-on 100 ?', 'Cent', 'Cents', 'Sans', 'Cen');
 
 
 INSERT INTO `questionnaire` (`IdQuestionnaire`, `Theme`,`IdMatiere`)
